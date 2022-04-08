@@ -1,5 +1,3 @@
-import './WatchLaterPage.css'
-
 const WatchLaterPage = () => {
     return (
         <div>WatchLaterPage</div>

@@ -1,4 +1,4 @@
-/* input[type="range"] {
+input[type="range"] {
     width:90%;
   }
 input[type="checkbox"],  input[type="radio"] {
@@ -35,4 +35,4 @@ input[type="checkbox"],  input[type="radio"] {
 .max-price{
     font-size: 12px;
     
-} */
+}
