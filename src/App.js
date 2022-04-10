@@ -10,6 +10,7 @@ import PlaylistPage from './pages/PlaylistPage/PlaylistPage'
 import LikedPage from './pages/LikedPage/LikedPage'
 import WatchLaterPage from './pages/WatchLaterPage/WatchLaterPage'
 import HistoryPage from './pages/HistoryPage/HistoryPage'
+import SingleVideoPage from './pages/SingleVideoPage/SingleVideoPage.js'
 import Mockman from 'mockman-js'
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
             <Route path="/liked" element={<LikedPage />} />
             <Route path="/watch-later" element={<WatchLaterPage />} />
             <Route path="/history" element={<HistoryPage />} />
+            <Route path="/watch/:id" element={<SingleVideoPage />} />
             <Route path="mockman" element={<Mockman />} />
           </Routes>
         </div>

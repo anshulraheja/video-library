@@ -64,9 +64,9 @@ export const videos = [
     _id: uuid(),
     title: "Saina Nehwal Wins Badminton Women's Singles Bronze - IND v CHN | London 2012 Olympics",
     creatorName: "Olympics",
-    thumbNail: "https://img.youtube.com/vi/HucIqi8Lw3E/mqdefault.jpg",
+    thumbNail: "https://img.youtube.com/vi/O6VqAG6b--o/mqdefault.jpg",
     viewCount: 9984215,
     category: "Badminton",
-    videoURL: "https://www.youtube.com/watch?v=HucIqi8Lw3E",
+    videoURL: "https://www.youtube.com/watch?v=O6VqAG6b--o",
   },
 ];

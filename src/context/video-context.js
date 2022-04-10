@@ -10,6 +10,19 @@ const VideosContext = createContext();
 
 const VideosProvider = ({ children }) => {
     const [videos, setVideos] = useState([]);
+    const [videoToWatch, setVideoToWatch] = useState();
+
+    async function getVideoURL(videoId) {
+        try {
+            const res = await axios.get(`/api/video/${videoId}`);
+            const videoUrl = res.data.video.videoURL.split("=")[1];
+            setVideoToWatch(videoUrl);
+        } catch (err) {
+            alert(err);
+
+        }
+    }
+
     useEffect(() => {
         const getVideos = async () => {
             try {
@@ -26,7 +39,9 @@ const VideosProvider = ({ children }) => {
     return (
         <VideosContext.Provider
             value={{
-                videos
+                videos,
+                getVideoURL,
+                videoToWatch
             }}
         >
             {children}

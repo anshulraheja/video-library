@@ -7,7 +7,6 @@ const Homepage = () => {
     const { videos } = useVideos();
     const { categories } = useCategory();
     const [selectedCategory, setSelectedCategory] = useState("All");
-
     return (
         <div>
             <button name="All" onClick={(e) => setSelectedCategory(e.target.name)}>All</button>
