@@ -6,7 +6,6 @@ import { useWatchLater } from '../../context/watchlater-context'
 const WatchLaterPage = () => {
     const { auth } = useAuth();
     const { watchLater, clearWatchLater } = useWatchLater();
-    console.log(watchLater);
 
     return (
         <div>
@@ -14,11 +13,10 @@ const WatchLaterPage = () => {
             {auth.isLoggedIn ?
                 <div>
 
-                    {watchLater && watchLater.length > 0 && <button className="btn-clear-wishlist" onClick={clearWatchLater}>Clear watch later</button>}
+                    {watchLater && watchLater.length > 0 && <button className="btn-clear" onClick={clearWatchLater}>Clear watch later</button>}
                     {
                         watchLater.length > 0 ?
                             watchLater.map(item => {
-                                console.log(item);
                                 return (<VideoCard video={item} key={item._id} />)
                             })
                             :

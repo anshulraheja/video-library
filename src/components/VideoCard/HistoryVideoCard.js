@@ -12,8 +12,9 @@ const HistoryVideoCard = ({ video }) => {
                     <img src={video.thumbNail} alt={video.title} />
                 </div>
             </Link>
-            <div>
-                <h3>{video.title}</h3>
+            <h3>{video.title}</h3>
+            <div className="video-card-btn-container">
+
                 <button onClick={() => toggleHistoryVideo(video)}>Remove from history</button>
             </div>
         </div>

@@ -6,22 +6,16 @@ const LikedPage = () => {
 
     const { auth } = useAuth();
     const { likedVideo, clearLikedVideo } = useLiked();
-
-
-
-    console.log(likedVideo);
-
     return (
         <div>
             <h1>Liked Video</h1>
             {auth.isLoggedIn ?
                 <div>
 
-                    {likedVideo && likedVideo.length > 0 && <button className="btn-clear-wishlist" onClick={clearLikedVideo}>Clear wishlist</button>}
+                    {likedVideo && likedVideo.length > 0 && <button className="btn-clear" onClick={clearLikedVideo}>Clear wishlist</button>}
                     {
                         likedVideo.length > 0 ?
                             likedVideo.map(item => {
-                                console.log(item);
                                 return (<VideoCard video={item} key={item._id} />)
                             })
                             :

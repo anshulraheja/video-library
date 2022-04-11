@@ -10,12 +10,29 @@ const PlaylistProvider = ({ children }) => {
     const { isLoggedIn, token } = auth;
     const [playlist, setPlaylist] = useState([]);
 
-    const savetoPlaylist = (video) => {
-        console.log("savetoPlaylist", video);
+    const savetoPlaylist = (video, playlistId) => {
+        axios.post(`/api/user/playlists/${playlistId}`, { video }, {
+            headers: { authorization: token }
+        }).then(res => {
+            console.log(res);
+        })
+            .catch(err => {
+                alert("error while creating the playlist")
+            })
 
     }
-    const createPlaylist = (video) => {
-        console.log("creating playlist", video)
+    const createPlaylist = (newPlaylist, video) => {
+        console.log("creating playlist", newPlaylist);
+        axios.post("/api/user/playlists", { newPlaylist }, {
+            headers: { authorization: token }
+        }).then(res => {
+            console.log(res);
+            setPlaylist(res.data.playlists);
+        })
+            .catch(err => {
+                alert("error while creating the playlist")
+            })
+
     }
     const togglePlaylist = (video) => {
         console.log("product", video);
@@ -25,7 +42,7 @@ const PlaylistProvider = ({ children }) => {
             removeFromPlaylist(video._id);
         }
         else {
-            axios.post("/api/user/playlist",
+            axios.post("/api/user/playlists",
                 { video },
                 {
                     headers: { authorization: token },
@@ -44,7 +61,7 @@ const PlaylistProvider = ({ children }) => {
 
     const removeFromPlaylist = (id) => {
         axios
-            .delete(`/api/user/playlist/${id}`, {
+            .delete(`/api/user/playlists/${id}`, {
                 headers: { authorization: token },
             })
             .then((res) => {
@@ -62,11 +79,12 @@ const PlaylistProvider = ({ children }) => {
 
     const getPlaylist = () => {
         axios
-            .get("/api/user/playlist", {
+            .get("/api/user/playlists", {
                 headers: { authorization: token },
             })
             .then((res) => {
-                setPlaylist(res.data.playlist);
+                console.log("getplaylist", res)
+                setPlaylist(res.data.playlists);
             })
             .catch((err) => {
                 setPlaylist([]);
@@ -108,7 +126,7 @@ export { usePlaylist, PlaylistProvider };
     2.1 save the video to that playlist
     2.2 if video already exists, show alert and return
 
- 3. onClick of create
+ 3. onClick of create (1)
     3.1 show modal to create playlist
     3.2 update the exsiting list when new playlist is added
 

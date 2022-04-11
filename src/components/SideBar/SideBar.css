@@ -13,7 +13,11 @@ input[type="checkbox"],  input[type="radio"] {
     padding: 1rem;
     flex: 1 1 10%;
     min-width: 20ch;
-    background: var(--COLOR-BACKGROUND-GREY);
+    background: var(--COLOR-HEADER-BKGD);
+    font-size: 1.2rem;
+}
+.filter-container > a {
+    color: var(--COLOR-WHITE);
 }
 .filter-header{
     display: flex;
@@ -27,7 +31,7 @@ input[type="checkbox"],  input[type="radio"] {
 }
 .sub-filter-header{
     margin-bottom: 0.5rem;
-}
+}   
 .filter-container label {
     display: block;
     margin-bottom: 0.25rem;

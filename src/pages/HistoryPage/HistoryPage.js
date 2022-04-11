@@ -6,7 +6,6 @@ import HistoryVideoCard from "../../components/VideoCard/HistoryVideoCard";
 const HistoryPage = () => {
     const { auth } = useAuth();
     const { historyVideo, clearHistoryVideo } = useHistory();
-    console.log(historyVideo);
 
     return (
         <div>
@@ -14,11 +13,10 @@ const HistoryPage = () => {
             {auth.isLoggedIn ?
                 <div>
 
-                    {historyVideo && historyVideo.length > 0 && <button className="btn-clear-wishlist" onClick={clearHistoryVideo}>Clear all histroy</button>}
+                    {historyVideo && historyVideo.length > 0 && <button className="btn-clear" onClick={clearHistoryVideo}>Clear all histroy</button>}
                     {
                         historyVideo.length > 0 ?
                             historyVideo.map(item => {
-                                console.log(item);
                                 return (<HistoryVideoCard video={item} key={item._id} />)
                             })
                             :

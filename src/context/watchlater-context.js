@@ -11,8 +11,6 @@ const WatchLaterProvider = ({ children }) => {
     const [watchLater, setWatchLater] = useState([]);
 
     const toggleWatchLater = (video) => {
-        console.log("video", video);
-        console.log("token", token);
         if (!isLoggedIn) {
             alert("Please login to add item to watch later");
             return;
@@ -28,7 +26,6 @@ const WatchLaterProvider = ({ children }) => {
                 }
             )
                 .then((res) => {
-                    console.log(res);
                     setWatchLater(res.data.watchlater);
                 })
                 .catch((err) => {

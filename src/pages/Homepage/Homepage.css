@@ -1,0 +1,17 @@
+.category-container{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.category-container > button {
+    color: var(--COLOR-WHITE);
+    background: var(--COLOR-CATEGORY-CARD-BKGD);
+    font-size: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+}
+.video-container{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}

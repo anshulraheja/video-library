@@ -12,7 +12,7 @@ const CategoryProvider = ({ children }) => {
                 const response = await axios.get("/api/categories");
                 setCategories(response.data.categories)
             } catch (error) {
-                console.error(error.message);
+                alert(error);
             }
         };
         getcategories();

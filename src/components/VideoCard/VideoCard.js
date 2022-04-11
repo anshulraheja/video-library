@@ -31,21 +31,21 @@ const VideoCard = ({ video }) => {
             </Link>
             <div>
                 <h3>{video.title}</h3>
-                {
-                    isVideoInlikedVideo ?
-                        <button onClick={() => toggleLikedVideo(video)}>Remove from Liked</button>
-                        :
-                        <button onClick={() => toggleLikedVideo(video)}>Like</button>
-
-                }
-                {
-                    isVideoInWatchLater ?
-                        <button onClick={() => toggleWatchLater(video)}> Remove from Watch Later</button>
-                        :
-                        <button onClick={() => toggleWatchLater(video)}>Watch Later</button>
-
-                }
-                <button onClick={() => setIsPlaylistModalOpen(true)}>Save to playlist</button>
+                <div className="video-card-btn-container">
+                    {
+                        isVideoInlikedVideo ?
+                            <button onClick={() => toggleLikedVideo(video)}>Remove from Liked</button>
+                            :
+                            <button onClick={() => toggleLikedVideo(video)}>Like</button>
+                    }
+                    {
+                        isVideoInWatchLater ?
+                            <button onClick={() => toggleWatchLater(video)}> Remove from Watch Later</button>
+                            :
+                            <button onClick={() => toggleWatchLater(video)}>Watch Later</button>
+                    }
+                    <button onClick={() => setIsPlaylistModalOpen(true)}>Save to playlist</button>
+                </div>
             </div>
 
             {isPlaylistModalOpen &&
