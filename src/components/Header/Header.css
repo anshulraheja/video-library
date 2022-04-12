@@ -1,4 +1,5 @@
 .header{
+    background: var(--COLOR-HEADER-BKGD);
     padding: 0.5rem;
     display: flex;
     align-items: center;
@@ -7,13 +8,17 @@
     z-index: 1;
     margin-bottom: 2rem;
 }
-.header a {
-    color: black;
-}
+/* .header a {
+    color: var(--COLOR-WHITE);
+} */
 .logo {
     min-width: 2rem;
     width: 5rem;
-
+    
+}
+.logo > a {
+    color: var(--COLOR-HEADER-TEXT);
+    font-weight: 700;
 }
 .categories{
     display: flex;
@@ -64,8 +69,12 @@
     align-items: center;
 }
 .btn-login{
-    background: transparent;
-    font-size: 1rem;
+    background: var(--COLOR-HEADER-TEXT);
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+}
+.btn-login > a {
+    color: var( --COLOR-HEADER-BKGD);
 }
 .categories-tab{
     text-decoration: underline;

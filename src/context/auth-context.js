@@ -2,7 +2,7 @@ import axios from "axios";
 import { createContext, useContext, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 
-const authContext = createContext();
+const authContext = createContext(null);
 
 const authInitialState = {
     isLoggedIn: localStorage.getItem("token") ? true : false,
@@ -50,12 +50,8 @@ const AuthProvider = ({ children }) => {
         }
         else {
             try {
-                const response = await axios.post(`/api/auth/signup`, {
-                    "email": email,
-                    "password": password,
-                    "confirmpassword": confirmpassword,
-                    "firstName": name,
-                    "terms": terms
+                const response = await axios.post("/api/auth/signup", {
+                    userInfo
                 });
                 authDispatcher({ type: "LOGGED_IN", payload: response.data });
                 navigate("/");

@@ -1,5 +1,16 @@
-.video-card-container{
-    border: 1px solid;
-    margin-bottom: 1rem;
-
+.video-card-container {
+    width: 400px;
+    background: var(--COLOR-BACKGROUND-GREY);
+    padding: 0.25rem;
+}
+.video-card-btn-container{
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.video-card-btn-container > button {
+    padding: 0.5rem 0.75rem;
+    background: var(--COLOR-PRODUCT-CARD-BKGD);
+    font-weight: 500;
+    /* background: red; */
 }
