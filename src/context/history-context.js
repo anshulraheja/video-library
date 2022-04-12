@@ -12,8 +12,6 @@ const HistoryProvider = ({ children }) => {
     const [historyVideo, setHistoryVideo] = useState([]);
 
     const toggleHistoryVideo = (video) => {
-        console.log("product", video);
-        console.log("token", token);
         if (!isLoggedIn) {
             alert("Please login to add item to history");
             return;
@@ -29,7 +27,6 @@ const HistoryProvider = ({ children }) => {
                 }
             )
                 .then((res) => {
-                    console.log(res);
                     setHistoryVideo(res.data.history);
                 })
                 .catch((err) => {

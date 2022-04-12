@@ -18,16 +18,13 @@ const PlaylistModal = (props) => {
     };
     useEffect(() => {
         getPlaylist();
-        console.log(playlist);
     }, []);
-    console.log(playlist);
     return (
         <div className="modal">
             <div>
                 {
                     playlist.length > 0 ?
                         playlist.map((item, index) => {
-                            console.log("item", item);
                             return (
                                 <div key={index} onClick={() => savetoPlaylist(video, item._id)}>{item._id}</div>
                             )

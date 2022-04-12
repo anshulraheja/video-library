@@ -11,8 +11,6 @@ const LikedProvider = ({ children }) => {
     const [likedVideo, setLikedVideo] = useState([]);
 
     const toggleLikedVideo = (video) => {
-        console.log("product", video);
-        console.log("token", token);
         if (!isLoggedIn) {
             alert("Please login to add item to liked");
             return;
@@ -28,7 +26,6 @@ const LikedProvider = ({ children }) => {
                 }
             )
                 .then((res) => {
-                    console.log(res);
                     setLikedVideo(res.data.likes);
                 })
                 .catch((err) => {

@@ -5,7 +5,7 @@ const PlaylistPage = (props) => {
     const { playlist } = usePlaylist();
     console.log(playlist);
     return (
-        <div>PlaylistPage is under contructions</div>
+        <div>Playlist Page is under contructions</div>
     )
 }
 

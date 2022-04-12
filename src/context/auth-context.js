@@ -50,7 +50,6 @@ const AuthProvider = ({ children }) => {
         }
         else {
             try {
-                console.log(userInfo);
                 const response = await axios.post("/api/auth/signup", {
                     userInfo
                 });

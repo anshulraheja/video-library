@@ -44,16 +44,16 @@ const VideoCard = ({ video }) => {
                             :
                             <button onClick={() => toggleWatchLater(video)}>Watch Later</button>
                     }
-                    <button onClick={() => setIsPlaylistModalOpen(true)}>Save to playlist</button>
+                    <button onClick={() => setIsPlaylistModalOpen(false)}>Save to playlist</button>
                 </div>
             </div>
 
-            {isPlaylistModalOpen &&
+            {/* {isPlaylistModalOpen &&
                 <PlaylistModal
                     setIsPlaylistModalOpen={setIsPlaylistModalOpen}
                     video={video}
                 />
-            }
+            } */}
         </div>
     )
 }
