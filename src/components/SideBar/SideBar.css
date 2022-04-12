@@ -1,0 +1,38 @@
+input[type="range"] {
+    width:90%;
+  }
+input[type="checkbox"],  input[type="radio"] {
+    margin-right: 6px;
+    transform: scale(1.4);
+}
+.filter-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 18.75rem;
+    padding: 1rem;
+    flex: 1 1 10%;
+    min-width: 20ch;
+    background: var(--COLOR-BACKGROUND-GREY);
+}
+.filter-header{
+    display: flex;
+    justify-content: space-between;
+}
+.filter-header > button{
+    background: none;   
+}
+.filter-header > button:hover {
+    text-decoration: underline;
+}
+.sub-filter-header{
+    margin-bottom: 0.5rem;
+}
+.filter-container label {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+.max-price{
+    font-size: 12px;
+    
+}
