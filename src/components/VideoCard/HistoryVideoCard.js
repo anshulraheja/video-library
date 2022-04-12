@@ -7,7 +7,7 @@ const HistoryVideoCard = ({ video }) => {
 
     return (
         <div className="video-card-container">
-            <Link to={`watch/${video._id}`}>
+            <Link to={`/watch/${video._id}`}>
                 <div>
                     <img src={video.thumbNail} alt={video.title} />
                 </div>

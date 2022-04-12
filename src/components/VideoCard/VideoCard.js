@@ -24,7 +24,7 @@ const VideoCard = ({ video }) => {
 
     return (
         <div className="video-card-container">
-            <Link to={`watch/${video._id}`} onClick={() => toggleHistoryVideo(video)}   >
+            <Link to={`/watch/${video._id}`} onClick={() => toggleHistoryVideo(video)}   >
                 <div>
                     <img src={video.thumbNail} alt={video.title} />
                 </div>
