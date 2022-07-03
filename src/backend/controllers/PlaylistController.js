@@ -46,6 +46,15 @@ export const addNewPlaylistHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
   if (user) {
     const { playlist } = JSON.parse(request.requestBody);
+    if (user.playlists.some((p) => p.title === playlist.title)) {
+      return new Response(
+        404,
+        {},
+        {
+          errors: ["Playlist Already Created"],
+        }
+      );
+    }
     user.playlists.push({ ...playlist, videos: [], _id: uuid() });
     return new Response(201, {}, { playlists: user.playlists });
   }
@@ -89,7 +98,7 @@ export const getVideosFromPlaylistHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
   if (user) {
     const playlistId = request.params.playlistId;
-    const playlist = user.playlists.find((item) => item._id !== playlistId);
+    const playlist = user.playlists.find((item) => item._id === playlistId);
     return new Response(200, {}, { playlist });
   }
   return new Response(

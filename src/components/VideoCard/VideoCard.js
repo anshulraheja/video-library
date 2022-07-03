@@ -4,23 +4,20 @@ import { Link } from 'react-router-dom'
 import { useLiked } from '../../context/like-context'
 import { useWatchLater } from '../../context/watchlater-context'
 import { useHistory } from '../../context/history-context'
-import { usePlaylist } from '../../context/playlist-context';
 import PlaylistModal from '../PlaylistModal/PlaylistModal'
+const VideoCard = (props) => {
 
-const VideoCard = ({ video }) => {
-
+    const { video_id, video } = props;
     const { likedVideo, toggleLikedVideo } = useLiked();
     const { watchLater, toggleWatchLater } = useWatchLater();
     const { toggleHistoryVideo } = useHistory();
-    const { playlist } = usePlaylist();
-
-    const [isPlaylistModalOpen, setIsPlaylistModalOpen] = useState(false);
-
+    const [show, setShow] = useState(false);
     const isVideoInlikedVideo =
         likedVideo.findIndex((p) => p._id === video._id) !== -1;
 
     const isVideoInWatchLater =
         watchLater.findIndex((p) => p._id === video._id) !== -1;
+
 
     return (
         <div className="video-card-container">
@@ -44,16 +41,11 @@ const VideoCard = ({ video }) => {
                             :
                             <button onClick={() => toggleWatchLater(video)}>Watch Later</button>
                     }
-                    <button onClick={() => setIsPlaylistModalOpen(false)}>Save to playlist</button>
+                    <button onClick={() => setShow((p) => !p)}>Save to playlist</button>
                 </div>
             </div>
 
-            {/* {isPlaylistModalOpen &&
-                <PlaylistModal
-                    setIsPlaylistModalOpen={setIsPlaylistModalOpen}
-                    video={video}
-                />
-            } */}
+            {show && <PlaylistModal setShow={setShow} video={video} />}
         </div>
     )
 }
