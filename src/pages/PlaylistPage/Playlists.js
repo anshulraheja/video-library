@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import PlaylistModal from "../../components/PlaylistModal/PlaylistModal";
+import { CreatePlaylistModal } from "../../components/PlaylistModal/CreatePlaylistModal";
 import { usePlaylists } from "../../context/playlist-context";
 import { useAuth } from "../../context/auth-context";
 import './Playlists.css';
@@ -23,7 +23,7 @@ const Playlists = () => {
                             className="create-playlist-button"
                             onClick={() => setShow((p) => !p)}
                         >
-                            Create New Playlist
+                            Create new Playlist
                         </button>
                         <ul className="main-prod-container">
                             {playlists.map((playlist) => (
@@ -56,7 +56,7 @@ const Playlists = () => {
                     </div>}
 
             </div>
-            {show && <PlaylistModal setShow={setShow} />}
+            {show && <CreatePlaylistModal setShow={setShow} />}
         </main>
     )
 }

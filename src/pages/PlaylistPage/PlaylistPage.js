@@ -27,7 +27,6 @@ const PlaylistPage = (props) => {
     }, [playlistId]);
 
 
-    console.log(playlist);
     return (loading ?
         <div>Loading...</div> :
         <main className="main">

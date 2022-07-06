@@ -4,8 +4,9 @@ import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { usePlaylists } from '../../context/playlist-context';
 import VideoCard from '../VideoCard/VideoCard'
 import { useAuth } from '../../context/auth-context';
-const PlaylistModal = ({ setShow, video }) => {
+const PlaylistModal = (props) => {
 
+    const { setShow, video } = props
     const [showDiv, setShowDiv] = useState(false);
     const [playlistItem, setPlaylistItem] = useState({ title: "" });
     const { playlists, addToPlaylists, removeFromPlaylist, addToPlaylist } =
@@ -13,9 +14,7 @@ const PlaylistModal = ({ setShow, video }) => {
     const [playlistArr, setPlaylistArr] = useState([]);
     const navigate = useNavigate();
     const { pathname } = useLocation();
-    const isPlaylistPage = pathname !== '/playlists'
     const { auth: { isLoggedIn } } = useAuth();
-    console.log("isPlaylistPage", isPlaylistPage);
     useEffect(() => {
         setPlaylistArr(
             playlists.reduce(
@@ -34,7 +33,7 @@ const PlaylistModal = ({ setShow, video }) => {
                 <div className="modal-content">
                     <button className="card-dismiss" onClick={() => setShow(p => !p)}>X</button>
                     <div className="modal-title">My Playlist</div>
-                    {isPlaylistPage && <div className={`modal-playlist-container ${playlists.length === 0 ? "playlist-container-hide" : ""
+                    <div className={`modal-playlist-container ${playlists.length === 0 ? "playlist-container-hide" : ""
                         }`}>
                         <ul className='modal-playilst-wrapper'>
                             {playlists.map((item) => (
@@ -58,7 +57,7 @@ const PlaylistModal = ({ setShow, video }) => {
                                 </li>
                             ))}
                         </ul>
-                    </div>}
+                    </div>
                     <div className={`playlist-input-container ${showDiv ? "" : "input-box-hide"
                         }`}>
                         <input

@@ -1,17 +1,20 @@
 import './VideoCard.css'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useLiked } from '../../context/like-context'
 import { useWatchLater } from '../../context/watchlater-context'
 import { useHistory } from '../../context/history-context'
 import PlaylistModal from '../PlaylistModal/PlaylistModal'
+import { usePlaylists } from '../../context/playlist-context'
 const VideoCard = (props) => {
-
-    const { video_id, video } = props;
+    const { video } = props;
+    const { pathname } = useLocation();
     const { likedVideo, toggleLikedVideo } = useLiked();
     const { watchLater, toggleWatchLater } = useWatchLater();
     const { toggleHistoryVideo } = useHistory();
     const [show, setShow] = useState(false);
+    const { playlist, removeFromPlaylist } = usePlaylists();
+    const isPlaylistPage = pathname.includes("playlists");
     const isVideoInlikedVideo =
         likedVideo.findIndex((p) => p._id === video._id) !== -1;
 
@@ -21,8 +24,14 @@ const VideoCard = (props) => {
 
     return (
         <div className="video-card-container">
+            {isPlaylistPage && <i className="fas fa-trash btn-delete"
+                onClick={() => removeFromPlaylist(playlist._id, video._id)}>
+            </i>}
+
             <Link to={`/watch/${video._id}`} onClick={() => toggleHistoryVideo(video)}   >
-                <div>
+
+                <div className="video-img-container">
+
                     <img src={video.thumbNail} alt={video.title} />
                 </div>
             </Link>
